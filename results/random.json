@@ -1,0 +1,14 @@
+{
+  "config": "random",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "episodes": 3,
+  "successes": 0,
+  "success_rate": 0.0,
+  "latency_ms_p50": 0.12305000200285576,
+  "latency_ms_p95": 0.33740000071702525,
+  "inferences": 900
+}

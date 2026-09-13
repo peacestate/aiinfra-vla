@@ -1,0 +1,71 @@
+{
+  "config": "langact_insert",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "episodes": 20,
+  "successes": 0,
+  "success_rate": 0.0,
+  "per_seed": {
+    "0": false,
+    "1": false,
+    "2": false,
+    "3": false,
+    "4": false,
+    "5": false,
+    "6": false,
+    "7": false,
+    "8": false,
+    "9": false,
+    "10": false,
+    "11": false,
+    "12": false,
+    "13": false,
+    "14": false,
+    "15": false,
+    "16": false,
+    "17": false,
+    "18": false,
+    "19": false
+  },
+  "forward_ms": {
+    "n": 60,
+    "p50": 909.245649992954,
+    "p95": 1626.8989999953192,
+    "mean": 1052.1111483317025
+  },
+  "replay_ms": {
+    "n": 5940,
+    "p50": 22.36054999229964,
+    "p95": 37.06489998148754,
+    "mean": 24.695631919144724
+  },
+  "amortized_ms": {
+    "n": 6000,
+    "p50": 22.399950001272373,
+    "p95": 39.56279999692924,
+    "mean": 34.9697870832703
+  },
+  "steps": 6000,
+  "instruction": "Insert the peg into the socket.",
+  "task": "gym_aloha/AlohaInsertion-v0"
+}

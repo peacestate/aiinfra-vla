@@ -1,0 +1,38 @@
+{
+  "config": "smolvla_ov_int8_gpu",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "episodes": 10,
+  "successes": 3,
+  "success_rate": 0.3,
+  "forward_ms": {
+    "n": 59,
+    "p50": 1341.10239999427,
+    "p95": 1810.583400001633,
+    "mean": 1504.5910830519722
+  },
+  "replay_ms": {
+    "n": 2880,
+    "p50": 0.21549999655690044,
+    "p95": 0.5699000030290335,
+    "mean": 0.2894820831847432
+  },
+  "amortized_ms": {
+    "n": 2939,
+    "p50": 0.21659999038092792,
+    "p95": 0.7287999906111509,
+    "mean": 30.48811919007772
+  },
+  "steps": 2939,
+  "instruction": "Pick up the cube with the right arm and transfer it to the left arm."
+}

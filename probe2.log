@@ -1,0 +1,58 @@
+Requesting machine
+Machine available after 1m19s
+Machine started in 23s
+Downloading image
+Image downloaded in 1m2s
+Container started in 4s
+Setup
+Execute
+[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.[0m[33m
+[0m  [1;31merror[0m: [1msubprocess-exited-with-error[0m
+
+  [31m×[0m [32mBuilding wheel for evdev [0m[1;32m([0m[32mpyproject.toml[0m[1;32m)[0m did not run successfully.
+  [31m│[0m exit code: [1;36m1[0m
+  [31m╰─>[0m [31m[35 lines of output][0m
+  [31m   [0m running bdist_wheel
+  [31m   [0m running build
+  [31m   [0m running build_py
+  [31m   [0m creating build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/uinput.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/device.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/__init__.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/events.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/eventio_async.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/ecodes.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/ecodes_runtime.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/evtest.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/genecodes_py.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/eventio.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/util.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/ff.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/genecodes_c.py -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m running egg_info
+  [31m   [0m writing src/evdev.egg-info/PKG-INFO
+  [31m   [0m writing dependency_links to src/evdev.egg-info/dependency_links.txt
+  [31m   [0m writing top-level names to src/evdev.egg-info/top_level.txt
+  [31m   [0m reading manifest file 'src/evdev.egg-info/SOURCES.txt'
+  [31m   [0m reading manifest template 'MANIFEST.in'
+  [31m   [0m warning: no previously-included files found matching 'src/evdev/ecodes.c'
+  [31m   [0m adding license file 'LICENSE'
+  [31m   [0m writing manifest file 'src/evdev.egg-info/SOURCES.txt'
+  [31m   [0m copying src/evdev/input.c -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/py.typed -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m copying src/evdev/uinput.c -> build/lib.linux-x86_64-cpython-311/evdev
+  [31m   [0m running build_ext
+  [31m   [0m running build_ecodes
+  [31m   [0m writing /tmp/pip-install-1h5zrix2/evdev_8e9ee8bd4bca4733b17f679050977d2e/src/evdev/ecodes.c (using /usr/include/linux/input.h /usr/include/linux/input-event-codes.h /usr/include/linux/uinput.h)
+  [31m   [0m building 'evdev._input' extension
+  [31m   [0m gcc -pthread -B /opt/conda/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /opt/conda/include -fPIC -O2 -isystem /opt/conda/include -fPIC -I/opt/conda/include/python3.11 -c src/evdev/input.c -o build/temp.linux-x86_64-cpython-311/src/evdev/input.o -std=c99 -Wno-error=declaration-after-statement
+  [31m   [0m error: [Errno 2] No such file or directory: 'gcc'
+  [31m   [0m [31m[end of output][0m
+
+  [1;35mnote[0m: This error originates from a subprocess, and is likely not a problem with pip.
+[31m  ERROR: Failed building wheel for evdev[0m[31m
+[0m[1;31merror[0m: [1mfailed-wheel-build-for-install[0m
+
+[31m×[0m Failed to build installable wheels for some pyproject.toml based projects
+[31m╰─>[0m evdev
+[ERROR]: workload exited (status code: 1)

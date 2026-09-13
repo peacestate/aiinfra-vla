@@ -1,0 +1,26 @@
+{
+  "config": "smolvla",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "episodes": 3,
+  "successes": 1,
+  "success_rate": 0.3333333333333333,
+  "forward_ms": {
+    "n": 878,
+    "p50": 13.92399999895133,
+    "p95": 28.105000004870817,
+    "mean": 14274.32651936211
+  },
+  "replay_ms": null,
+  "amortized_ms": {
+    "n": 878,
+    "p50": 13.92399999895133,
+    "p95": 28.105000004870817,
+    "mean": 14274.32651936211
+  },
+  "steps": 878,
+  "instruction": "Pick up the cube with the right arm and transfer it to the left arm."
+}

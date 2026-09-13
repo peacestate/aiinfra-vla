@@ -1,0 +1,39 @@
+{
+  "config": "langact_transfer",
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "episodes": 10,
+  "successes": 2,
+  "success_rate": 0.2,
+  "forward_ms": {
+    "n": 30,
+    "p50": 953.9375000022119,
+    "p95": 1237.143799997284,
+    "mean": 1057.4750133338966
+  },
+  "replay_ms": {
+    "n": 2950,
+    "p50": 22.663899999315618,
+    "p95": 39.603099998203106,
+    "mean": 25.130906372920066
+  },
+  "amortized_ms": {
+    "n": 2980,
+    "p50": 22.701299996697344,
+    "p95": 42.31850000360282,
+    "mean": 35.523632281923184
+  },
+  "steps": 2980,
+  "instruction": "Pick up the cube with the right arm and transfer it to the left arm.",
+  "task": "gym_aloha/AlohaTransferCube-v0"
+}

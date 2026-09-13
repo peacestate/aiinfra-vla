@@ -1,0 +1,25 @@
+instruction: 'Insert the peg into the socket.'
+WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.
+WARNING:lerobot.configs.policies:Device 'cuda' is not available. Switching to 'cpu'.
+WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.
+WARNING:lerobot.configs.policies:Device 'cuda' is not available. Switching to 'cpu'.
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+  seed   0: fail     (300 steps, 6 forward passes, 1481.0 ms/forward)
+  seed   1: fail     (300 steps, 6 forward passes, 1515.6 ms/forward)
+  seed   2: fail     (300 steps, 6 forward passes, 1474.9 ms/forward)
+  seed   3: fail     (300 steps, 6 forward passes, 1552.8 ms/forward)
+  seed   4: fail     (300 steps, 6 forward passes, 1629.4 ms/forward)
+  seed   5: fail     (300 steps, 6 forward passes, 1493.2 ms/forward)
+  seed   6: fail     (300 steps, 6 forward passes, 1463.7 ms/forward)
+  seed   7: fail     (300 steps, 6 forward passes, 1375.4 ms/forward)
+  seed   8: fail     (300 steps, 6 forward passes, 1361.6 ms/forward)
+  seed   9: fail     (300 steps, 6 forward passes, 1335.9 ms/forward)
+
+smolvla_ov_int8_gpu_wrongtext: success 0/10 (0%)
+  forward pass : p50 1457.8 ms  p95 1999.1 ms  (n=60)
+  cached replay: p50 0.3 ms  (n=2940)
+  amortized    : p50 0.3 ms/step
+wrote results_smolvla8k\smolvla_ov_int8_gpu_wrongtext.json

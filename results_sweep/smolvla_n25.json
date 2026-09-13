@@ -1,0 +1,38 @@
+{
+  "config": "smolvla_n25",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "episodes": 10,
+  "successes": 4,
+  "success_rate": 0.4,
+  "forward_ms": {
+    "n": 117,
+    "p50": 1301.1897999967914,
+    "p95": 1662.6541999867186,
+    "mean": 1425.3302487174326
+  },
+  "replay_ms": {
+    "n": 2770,
+    "p50": 0.2084500010823831,
+    "p95": 0.4937000048812479,
+    "mean": 0.26054191331119386
+  },
+  "amortized_ms": {
+    "n": 2887,
+    "p50": 0.20979999681003392,
+    "p95": 0.9566000080667436,
+    "mean": 58.01362667121982
+  },
+  "steps": 2887,
+  "instruction": "Pick up the cube with the right arm and transfer it to the left arm."
+}

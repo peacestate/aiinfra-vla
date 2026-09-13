@@ -1,0 +1,25 @@
+instruction: 'Pick up the cube with the right arm and transfer it to the left arm.'
+WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.
+WARNING:lerobot.configs.policies:Device 'cuda' is not available. Switching to 'cpu'.
+WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.
+WARNING:lerobot.configs.policies:Device 'cuda' is not available. Switching to 'cpu'.
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Reducing the number of VLM layers to 16 ...
+Loading weights from local directory
+  seed   0: SUCCESS  (287 steps, 12 forward passes, 1281.3 ms/forward)
+  seed   1: SUCCESS  (255 steps, 11 forward passes, 1296.6 ms/forward)
+  seed   2: fail     (300 steps, 12 forward passes, 1316.9 ms/forward)
+  seed   3: fail     (300 steps, 12 forward passes, 1311.7 ms/forward)
+  seed   4: fail     (300 steps, 12 forward passes, 1277.9 ms/forward)
+  seed   5: SUCCESS  (246 steps, 10 forward passes, 1278.6 ms/forward)
+  seed   6: fail     (300 steps, 12 forward passes, 1298.9 ms/forward)
+  seed   7: fail     (300 steps, 12 forward passes, 1447.3 ms/forward)
+  seed   8: fail     (300 steps, 12 forward passes, 1308.2 ms/forward)
+  seed   9: SUCCESS  (299 steps, 12 forward passes, 1308.5 ms/forward)
+
+smolvla_n25: success 4/10 (40%)
+  forward pass : p50 1301.2 ms  p95 1662.7 ms  (n=117)
+  cached replay: p50 0.2 ms  (n=2770)
+  amortized    : p50 0.2 ms/step
+wrote results_sweep\smolvla_n25.json

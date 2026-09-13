@@ -1,0 +1,19 @@
+# credentials — never commit
+.env
+
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+
+# large artifacts (regenerate with export_openvino.py / make_dataset.py)
+ir/
+models/
+outputs/
+wandb/
+checkpoint_langact*/
+checkpoint_smolvla*/
+
+# scratch
+ov_out.txt
+ov_err.txt

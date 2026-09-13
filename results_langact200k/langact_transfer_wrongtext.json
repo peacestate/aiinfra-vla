@@ -1,0 +1,71 @@
+{
+  "config": "langact_transfer_wrongtext",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "episodes": 20,
+  "successes": 14,
+  "success_rate": 0.7,
+  "per_seed": {
+    "0": false,
+    "1": true,
+    "2": true,
+    "3": false,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": false,
+    "11": true,
+    "12": false,
+    "13": true,
+    "14": true,
+    "15": false,
+    "16": false,
+    "17": true,
+    "18": true,
+    "19": true
+  },
+  "forward_ms": {
+    "n": 60,
+    "p50": 571.3627499935683,
+    "p95": 1115.7020000100601,
+    "mean": 584.8072683327094
+  },
+  "replay_ms": {
+    "n": 5369,
+    "p50": 14.222500001778826,
+    "p95": 20.742099994095042,
+    "mean": 14.196612963511566
+  },
+  "amortized_ms": {
+    "n": 5429,
+    "p50": 14.235399983590469,
+    "p95": 22.41080001113005,
+    "mean": 20.502864450369525
+  },
+  "steps": 5429,
+  "instruction": "Insert the peg into the socket.",
+  "task": "gym_aloha/AlohaTransferCube-v0"
+}
