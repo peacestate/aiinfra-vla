@@ -204,6 +204,12 @@ seed result (n=10 is small; this is within noise, not an improvement). This
 is the evidence that the fixed-seed numbers above generalize rather than
 being an artifact of that particular range.
 
+**Video: `media/voice_control_randomized10_seeds.mp4`** — all 10 randomized
+episodes back-to-back, each labeled with its seed and a SUCCESS/FAIL banner.
+The 2 genuine failures (seeds 78982, 99370) are included and labeled, not cut
+— this is the actual footage behind the 8/10 number above, not a highlight
+reel of the successes.
+
 ## Voice control (Speechmatics) — how we actually make it talk-to-able
 
 The swap test above rules out one design: feeding speech into the policy's
