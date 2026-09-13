@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 # Lightweight watcher: curl only, no Python per tick.
+# Usage: KAGGLE_USER=youruser bash _wait_train.sh [kernel-slug]
+KAGGLE_USER="${KAGGLE_USER:?set KAGGLE_USER to your Kaggle username}"
+SLUG="${1:-langact-train}"
 T=$(tr -d ' \r\n' < "$HOME/.kaggle/access_token")
-URL="https://www.kaggle.com/api/v1/kernels/status?userName=kianukal&kernelSlug=langact-train"
+URL="https://www.kaggle.com/api/v1/kernels/status?userName=${KAGGLE_USER}&kernelSlug=${SLUG}"
 for i in $(seq 1 60); do
-  R=$(curl -s -m 30 -H "Authorization: Bearer $T" -H "User-Agent: hyperframe/1.0" "$URL")
+  R=$(curl -s -m 30 -H "Authorization: Bearer $T" -H "User-Agent: aiinfra-vla/1.0" "$URL")
   case "$R" in
     *running*|*RUNNING*) : ;;
     *complete*|*COMPLETE*|*error*|*ERROR*|*cancel*|*CANCEL*)

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Push a LangACT continuation run to Kaggle.
 #
-#   bash push_run2.sh                                        # run 2, resumes run 1
-#   bash push_run2.sh langact-train-3 kianukal/langact-train-2   # run 3, resumes run 2
+#   export KAGGLE_USER=youruser
+#   bash push_run2.sh                                          # run 2, resumes run 1
+#   bash push_run2.sh langact-train-3 youruser/langact-train-2  # run 3, resumes run 2
 #
 # Each run is a NEW slug that mounts the PREVIOUS run's output via kernel_sources:
 # a kernel cannot list its own output as a source. Resuming this way keeps the
@@ -14,9 +15,9 @@
 #        https://www.kaggle.com/api/v1/kernels/quota
 set -eu
 
+USER="${KAGGLE_USER:?set KAGGLE_USER to your Kaggle username}"
 SLUG="${1:-langact-train-2}"
-SOURCE="${2:-kianukal/langact-train}"
-USER="kianukal"
+SOURCE="${2:-$USER/langact-train}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 
 DIR="$(mktemp -d)"
@@ -47,18 +48,18 @@ JSON
 echo "pushing $USER/$SLUG (resuming from $SOURCE)"
 kaggle kernels push -p "$DIR" --accelerator NvidiaTeslaT4
 
-cat <<'NOTE'
+cat <<NOTE
 
 Now confirm it actually starts. An out-of-quota account does NOT error: it leaves
 the kernel QUEUED forever, or reports a successful push having created nothing.
 A healthy kernel reaches RUNNING within ~2 minutes:
 
-  kaggle kernels status kianukal/<slug>
+  kaggle kernels status $USER/<slug>
 
 The log is only readable AFTER the run completes, so watch progress in the browser.
 Fetch the log afterwards from the API (kernels output downloads every file and the
 big checkpoint starves the log):
 
-  curl -s -H "Authorization: Bearer $(tr -d ' \r\n' < ~/.kaggle/access_token)" \
-    "https://www.kaggle.com/api/v1/kernels/output?userName=kianukal&kernelSlug=<slug>"
+  curl -s -H "Authorization: Bearer \$(tr -d ' \r\n' < ~/.kaggle/access_token)" \\
+    "https://www.kaggle.com/api/v1/kernels/output?userName=$USER&kernelSlug=<slug>"
 NOTE
