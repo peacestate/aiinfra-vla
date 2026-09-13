@@ -118,7 +118,10 @@ Speechmatics (STT + TTS), Hugging Face Hub, Kaggle (T4 training).
 
 - **Repository:** https://github.com/peacestate/aiinfra-vla
 - **Trained checkpoint:** https://huggingface.co/earthpulse/langact-aloha-multitask
-- **Pitch video (79s):** `media/pitch_video.mp4` — problem, approach, results, and
-  real robot footage in one narrated cut
-- **Raw demo footage (10 randomized seeds, unedited):** `media/voice_control_randomized10_seeds.mp4`
+- **Pitch video (100s):** `media/pitch_video.mp4` — narrated over 100% real robot
+  footage (no slides): all 10 randomized-seed episodes, picture-in-picture
+  showing both the full scene and what the robot's own policy sees, narration
+  calling out both real failures honestly as they happen, ending on the true
+  8/10 score and the measured latency numbers
+- **Raw demo footage (10 randomized seeds, unedited, unnarrated):** `media/voice_control_randomized10_seeds.mp4`
 - **Slide deck:** `slides/deck.pdf`
