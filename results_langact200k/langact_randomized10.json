@@ -1,0 +1,52 @@
+{
+  "config": "langact_randomized10",
+  "seeds": [
+    12310,
+    97979,
+    15614,
+    87902,
+    88268,
+    3418,
+    78982,
+    47294,
+    99370,
+    57955
+  ],
+  "episodes": 10,
+  "successes": 8,
+  "success_rate": 0.8,
+  "per_seed": {
+    "12310": true,
+    "97979": true,
+    "15614": true,
+    "87902": true,
+    "88268": true,
+    "3418": true,
+    "78982": false,
+    "47294": true,
+    "99370": false,
+    "57955": true
+  },
+  "forward_ms": {
+    "n": 30,
+    "p50": 592.2814500081586,
+    "p95": 1455.3125000093132,
+    "mean": 619.5763599990945
+  },
+  "replay_ms": {
+    "n": 2718,
+    "p50": 14.342649999889545,
+    "p95": 21.664600004442036,
+    "mean": 14.485407652663351
+  },
+  "amortized_ms": {
+    "n": 2748,
+    "p50": 14.37749998876825,
+    "p95": 23.405899992212653,
+    "mean": 21.091204075659324
+  },
+  "steps": 2748,
+  "instruction": "Pick up the cube with the right arm and transfer it to the left arm.",
+  "task": null,
+  "note": "genuinely randomized seeds (os entropy, not fixed 0-19), for the robustness/generalization deliverable"
+}
