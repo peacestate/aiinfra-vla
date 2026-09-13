@@ -80,9 +80,15 @@ uv pip install --python .venv/Scripts/python.exe lerobot==0.4.4 transformers==4.
 the exact checkpoint every result in this README was measured on):
 
 ```bash
-huggingface-cli download earthpulse/langact-aloha-multitask \
+uv pip install --python .venv/Scripts/python.exe -U "huggingface_hub[cli]"
+hf download earthpulse/langact-aloha-multitask \
     --local-dir checkpoint_langact/pretrained_model
 ```
+
+(Use `hf download`, not the older `huggingface-cli download` — the latter is
+deprecated and its own deprecation-warning print crashes with a
+`UnicodeEncodeError` on a default Windows console before downloading
+anything, verified on a clean install.)
 
 Then reproduce any number in this README directly, e.g.:
 
