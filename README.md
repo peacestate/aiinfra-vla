@@ -72,6 +72,24 @@ uv pip install --python .venv/Scripts/python.exe gym-aloha
 uv pip install --python .venv/Scripts/python.exe torch torchvision \
     --index-url https://download.pytorch.org/whl/cpu
 .venv/Scripts/python.exe smoke_env.py   # expect SMOKE_OK
+uv pip install --python .venv/Scripts/python.exe lerobot==0.4.4 transformers==4.57.6 \
+    huggingface_hub sentence-transformers openvino nncf
+```
+
+**Get the trained LangACT@200k checkpoint** (public, no token needed — this is
+the exact checkpoint every result in this README was measured on):
+
+```bash
+huggingface-cli download earthpulse/langact-aloha-multitask \
+    --local-dir checkpoint_langact/pretrained_model
+```
+
+Then reproduce any number in this README directly, e.g.:
+
+```bash
+python bench.py --policy langact --episodes 20 --seed0 0
+python bench.py --policy langact --episodes 20 --seed0 0 --swap-instruction
+benchmark_app -m ir/langact_int8.xml -hint latency -d GPU   # after export_langact.py
 ```
 
 ## Results — ACT, 20 seeds, i3-1215U

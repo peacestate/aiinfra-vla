@@ -17,3 +17,6 @@ checkpoint_smolvla*/
 # scratch
 ov_out.txt
 ov_err.txt
+scratch_*.pkl
+scratch_*.npy
+scratch_*.png
