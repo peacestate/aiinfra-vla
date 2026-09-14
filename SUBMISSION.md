@@ -116,6 +116,7 @@ Speechmatics (STT + TTS), Hugging Face Hub, Kaggle (T4 training).
 
 ## Links
 
+- **Live demo application:** https://webapp-chi-vert.vercel.app
 - **Repository:** https://github.com/peacestate/aiinfra-vla
 - **Trained checkpoint:** https://huggingface.co/earthpulse/langact-aloha-multitask
 - **Pitch video (100s):** `media/pitch_video.mp4` — narrated over 100% real robot

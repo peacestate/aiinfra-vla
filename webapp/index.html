@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bimanual VLA on Intel</title>
+<style>
+  :root {
+    --bg: #121216; --panel: #1a1a1f; --border: #2c2c33;
+    --yellow: #ffd100; --white: #f0f0f0; --gray: #a0a0a5;
+    --green: #64dc82; --red: #e65a5a; --blue: #6eaae6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 0 20px 60px; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  header { padding: 48px 0 24px; }
+  h1 { font-size: 2.4rem; margin: 0 0 6px; }
+  h1 span { color: var(--yellow); }
+  .sub { color: var(--gray); font-size: 1.05rem; margin: 0 0 4px; }
+  .badge { display: inline-block; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 20px; padding: 4px 14px; font-size: 0.85rem; color: var(--blue); margin-top: 10px; }
+  .hero-stats { display: flex; gap: 40px; margin: 28px 0; flex-wrap: wrap; }
+  .stat { }
+  .stat .num { font-size: 2.2rem; font-weight: 800; }
+  .stat .label { color: var(--gray); font-size: 0.85rem; }
+  .green { color: var(--green); } .yellow { color: var(--yellow); }
+  video, img.hero { width: 100%; border-radius: 10px; border: 1px solid var(--border); margin: 16px 0 32px; }
+  section { margin: 48px 0; }
+  h2 { font-size: 1.4rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--yellow); font-size: 0.8rem; text-transform: uppercase; letter-spacing: .04em; }
+  .warn { color: var(--red); font-weight: 700; }
+  .ok { color: var(--green); font-weight: 700; }
+  .callout { background: var(--panel); border: 1px solid var(--border); border-left: 4px solid var(--yellow);
+    padding: 16px 20px; border-radius: 6px; margin: 20px 0; }
+  .links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
+  .links a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .links a:hover { text-decoration: underline; }
+  footer { color: var(--gray); font-size: 0.85rem; margin-top: 60px; border-top: 1px solid var(--border); padding-top: 20px; }
+  code { background: var(--panel); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="badge">AI Infra Summit Hackathon &middot; Intel Bimanual VLA Manipulation</span>
+    <h1>Bimanual VLA <span>on Intel</span></h1>
+    <p class="sub">A measurement, not a demo.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num green">70%</div><div class="label">ties ACT ceiling, 20 fixed seeds</div></div>
+      <div class="stat"><div class="num yellow">90.5 ms</div><div class="label">INT8 on Intel iGPU (6x vs PyTorch CPU)</div></div>
+      <div class="stat"><div class="num" style="color:var(--red)">0/10</div><div class="label">swap-test effect &mdash; language never steers behavior</div></div>
+    </div>
+    <video controls poster="https://raw.githubusercontent.com/peacestate/aiinfra-vla/master/slides/cover.png">
+      <source src="https://raw.githubusercontent.com/peacestate/aiinfra-vla/master/media/pitch_video.mp4" type="video/mp4">
+    </video>
+  </header>
+
+  <section>
+    <h2>Training curve: 20% &rarr; 70% over 200k steps</h2>
+    <table>
+      <tr><th>Checkpoint</th><th>Success (20 seeds)</th></tr>
+      <tr><td>15,000 steps</td><td>4/20 (20%)</td></tr>
+      <tr><td>125,000 steps</td><td>9/20 (45%)</td></tr>
+      <tr><td>150,000 steps</td><td>13/20 (65%)</td></tr>
+      <tr><td>175,000 steps</td><td>13/20 (65%)</td></tr>
+      <tr><td><b>200,000 steps</b></td><td><b class="ok">14/20 (70%)</b></td></tr>
+      <tr><td>ACT baseline (no language)</td><td>14/20 (70%) &mdash; ceiling</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>The instruction-swap test: does language actually steer behavior?</h2>
+    <p>Feed the model the <em>wrong</em> instruction while running the same task. If language matters, success should collapse.</p>
+    <table>
+      <tr><th>Checkpoint</th><th>Normal instruction</th><th>Swapped instruction</th><th>Verdict</th></tr>
+      <tr><td>125k steps</td><td>9/20 (45%)</td><td>12/20 (60%)</td><td class="warn">WRONG DIRECTION</td></tr>
+      <tr><td>150k steps</td><td>13/20 (65%)</td><td>13/20 (65%)</td><td class="warn">IDENTICAL SEEDS</td></tr>
+      <tr><td>200k steps</td><td>14/20 (70%)</td><td>14/20 (70%)</td><td class="warn">IDENTICAL SEEDS</td></tr>
+    </table>
+    <div class="callout">
+      At every checkpoint tested, changing the sentence never changed a single episode's outcome &mdash;
+      even at 200k, where the model ties ACT. Root cause: in the training dataset, every episode pairs
+      one task with one instruction 1:1, so the visual scene alone fully determines behavior. Nothing in
+      training ever rewards reading the sentence &mdash; this is a dataset confound, not a training-length problem.
+    </div>
+  </section>
+
+  <section>
+    <h2>Intel optimization: official <code>benchmark_app</code> numbers</h2>
+    <table>
+      <tr><th>Runtime</th><th>Median latency</th><th>Throughput</th></tr>
+      <tr><td>fp32, CPU</td><td>239.1 ms</td><td>3.92 FPS</td></tr>
+      <tr><td>INT8, CPU</td><td>195.9 ms</td><td>4.20 FPS</td></tr>
+      <tr><td><b>INT8, Intel iGPU</b></td><td><b class="ok">71.0 ms</b></td><td><b class="ok">13.91 FPS</b></td></tr>
+    </table>
+    <p style="color:var(--gray)">INT8 weights: 132.6 MB &rarr; 33.7 MB (3.9x smaller). Reproducible with
+      <code>benchmark_app -m ir/langact_int8.xml -hint latency -d GPU</code>.<br>
+      Hardware disclosure: 12th Gen Core i3 (Alder Lake), CPU + Intel UHD iGPU only &mdash; no NPU.</p>
+  </section>
+
+  <section>
+    <h2>Voice control: since in-model conditioning is inert, we route instead</h2>
+    <p>Speechmatics STT transcribes the command, keyword matching resolves it to a known task, and that task
+      actually runs &mdash; Speechmatics TTS confirms the true outcome. Asking for a task the system can't do
+      (peg insertion, measured 0/20) gets an honest decline, not a silent failure.</p>
+  </section>
+
+  <div class="links">
+    <a href="https://github.com/peacestate/aiinfra-vla" target="_blank">GitHub Repository &rarr;</a>
+    <a href="https://huggingface.co/earthpulse/langact-aloha-multitask" target="_blank">Trained Checkpoint (Hugging Face) &rarr;</a>
+    <a href="https://raw.githubusercontent.com/peacestate/aiinfra-vla/master/slides/deck.pdf" target="_blank">Slide Deck (PDF) &rarr;</a>
+  </div>
+
+  <footer>
+    AI Infra Summit Hackathon &middot; Intel Bimanual VLA Manipulation &middot; Speechmatics bonus track
+  </footer>
+
+</div>
+</body>
+</html>
